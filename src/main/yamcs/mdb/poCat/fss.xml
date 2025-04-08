@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpaceSystem name="FSS" xmlns="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+    <CommandMetaData>
+        <MetaCommandSet>
+            <MetaCommand name="Publication Information" shortDescription="Contains information about the publication, including type, service category, provider identifier, estimated service lifetime, period, creation date, and maximum hops.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="publication" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Publication Information">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Request Packet" shortDescription="Identifies the packet type (request) and includes details about the requested service.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="request" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Request Packet">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Acceptance Packet" shortDescription="Identifies the packet type (accept) and confirms the service request.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="acceptance" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Acceptance Packet">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Data Packet" shortDescription="Identifies the packet type (data) and contains the actual data being transmitted.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="data" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Data Packet">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Acknowledgement Packet" shortDescription="Acknowledges receipt of a data packet.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="acknowledgement" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Acknowledgement Packet">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Close Packet" shortDescription="Identifies the packet type (close) and indicates the termination of the federation.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="close" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Close Packet">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+        </MetaCommandSet>
+    </CommandMetaData>
+</SpaceSystem>

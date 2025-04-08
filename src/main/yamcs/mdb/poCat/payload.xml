@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpaceSystem name="Payload" xmlns="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+    <CommandMetaData>
+        <MetaCommandSet>
+            <MetaCommand name="Activate Payload" shortDescription="Activate payload on a specified time or on TC reception.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="payload_schedule" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Activate Payload">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Deactivate Payload" shortDescription="Stop payload measurement and execution.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="payload_deactivate" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Deactivate Payload">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Send Payload Data" shortDescription="Send a specified measurement (e.g., last one, first one, etc.).">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="payload_send_data" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Send Payload Data">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+        </MetaCommandSet>
+    </CommandMetaData>
+</SpaceSystem>

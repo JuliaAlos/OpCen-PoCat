@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpaceSystem name="COMMS" xmlns="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+    <CommandMetaData>
+        <MetaCommandSet>
+            <MetaCommand name="Stop Transmissions" shortDescription="Orders the PocketQube to stop transmissions for a specified amount of time.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="comms_stop_tx" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Stop Transmissions">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Resume Transmissions" shortDescription="Orders the PocketQube to resume transmissions regardless of previous orders.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="comms_resume_tx" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Resume Transmissions">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Instant Telemetry Downlink" shortDescription="Requests instant telemetry (beacon).">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="comms_it_downlink" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Instant Telemetry Downlink">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Historic Telemetry Downlink" shortDescription="Requests a specified amount of historic telemetry (past beacons).">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="comms_ht_downlink" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Historic Telemetry Downlink">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+        </MetaCommandSet>
+    </CommandMetaData>
+</SpaceSystem>

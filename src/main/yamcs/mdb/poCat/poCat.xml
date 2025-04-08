@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpaceSystem name="PoCat" xmlns="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+	<TelemetryMetaData>
+		<ContainerSet>
+			<SequenceContainer name="ACK">
+			</SequenceContainer>
+		</ContainerSet>
+	</TelemetryMetaData>
+	<CommandMetaData>
+		<ArgumentTypeSet>
+			<EnumeratedArgumentType name="telecommand_ID_type">
+				<UnitSet />
+				<IntegerDataEncoding sizeInBits="8" />
+				<EnumerationList>
+					<Enumeration value="1" label="ping" />
+					<Enumeration value="2" label="transit_to_NM" />
+					<Enumeration value="3" label="transit_to_CM" />
+					<Enumeration value="4" label="transit_to_SSM" />
+					<Enumeration value="5" label="transit_to_SM" />
+					<Enumeration value="6" label="upload_adcs_calibration" />
+					<Enumeration value="7" label="upload_adcs_tle" />
+					<Enumeration value="8" label="upload_comms_config" />
+					<Enumeration value="9" label="comms_upload_params" />
+					<Enumeration value="10" label="upload_unix_time" />
+					<Enumeration value="11" label="upload_eps_th" />
+					<Enumeration value="12" label="upload_pl_config" />
+					<Enumeration value="13" label="downlink_config" />
+					<Enumeration value="14" label="eps_heater_enable" />
+					<Enumeration value="15" label="eps_heater_disable" />
+					<Enumeration value="16" label="pol_payload_shut" />
+					<Enumeration value="17" label="pol_adcs_shut" />
+					<Enumeration value="18" label="pol_burncomms_shut" />
+					<Enumeration value="19" label="pol_heater_shut" />
+					<Enumeration value="20" label="pol_payload_enable" />
+					<Enumeration value="21" label="pol_adcs_enable" />
+					<Enumeration value="22" label="pol_burncomms_enable" />
+					<Enumeration value="23" label="pol_heater_enable" />
+					<Enumeration value="24" label="clear_pl_data" />
+					<Enumeration value="25" label="clear_flash" />
+					<Enumeration value="26" label="clear_ht" />
+					<Enumeration value="27" label="comms_stop_tx" />
+					<Enumeration value="28" label="comms_resume_tx" />
+					<Enumeration value="29" label="comms_it_downlink" />
+					<Enumeration value="30" label="comms_ht_downlink" />
+					<Enumeration value="31" label="payload_schedule" />
+					<Enumeration value="32" label="payload_deactivate" />
+					<Enumeration value="33" label="payload_send_data" />
+					<Enumeration value="34" label="obc_hard_reboot" />
+					<Enumeration value="35" label="obc_soft_reboot" />
+					<Enumeration value="36" label="obc_periph_reboot" />
+					<Enumeration value="37" label="obc_debug_mode" />
+					<Enumeration value="101" label="publication" />
+					<Enumeration value="102" label="request" />
+					<Enumeration value="103" label="acceptance" />
+					<Enumeration value="104" label="data" />
+					<Enumeration value="105" label="acknowledgement" />
+					<Enumeration value="106" label="close" />
+				</EnumerationList>
+			</EnumeratedArgumentType>
+		</ArgumentTypeSet>
+		<MetaCommandSet>
+			<MetaCommand name="Header" abstract="true">
+				<ArgumentList>
+					<Argument argumentTypeRef="telecommand_ID_type" name="Telecommand ID" />
+				</ArgumentList>
+				<CommandContainer name="Header">
+					<EntryList>
+						<!-- Final value is set by post-processor after the command is submitted. -->
+						<FixedValueEntry name="UNIX Time" binaryValue="00000000" sizeInBits="32" />
+						<FixedValueEntry name="PoCat ID" binaryValue="00" sizeInBits="8" />
+						<!-- Argument ref will be set by the subcommands definition. -->
+						<ArgumentRefEntry argumentRef="Telecommand ID" />
+						<FixedValueEntry name="Seq Counter" binaryValue="00" sizeInBits="8" />
+					</EntryList>
+				</CommandContainer>
+			</MetaCommand>
+		</MetaCommandSet>
+	</CommandMetaData>
+</SpaceSystem>

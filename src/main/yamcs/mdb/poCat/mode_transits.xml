@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpaceSystem name="Mode transits" xmlns="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+    <CommandMetaData>
+        <MetaCommandSet>
+            <MetaCommand name="Transit to NM" shortDescription="Manual transition to the Nominal Mode">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="transit_to_NM" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Transit to NM">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+            <MetaCommand name="Transit to CM" shortDescription="Manual transition to Contingency Mode">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="transit_to_CM" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Transit to CM">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+            <MetaCommand name="Transit to SSM" shortDescription="Manual transition to the Sun Safe Mode">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="transit_to_SSM" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Transit to SSM">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+            <MetaCommand name="Transit to SM" shortDescription="Manual transition to the Survival Mode">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="transit_to_SM" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Transit to SM">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+        </MetaCommandSet>
+    </CommandMetaData>
+</SpaceSystem>

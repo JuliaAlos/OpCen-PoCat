@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpaceSystem name="Flash Memory" xmlns="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+    <CommandMetaData>
+        <MetaCommandSet>
+            <MetaCommand name="Clear Payload Data" shortDescription="Clear all payload data stored in the flash memory.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="clear_pl_data" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Clear Payload Data">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Clear Flash Memory" shortDescription="Clear the flash memory.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="clear_flash" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Clear Flash Memory">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Clear Historic Telemetry" shortDescription="Clear all historic telemetry stored in the flash memory.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="clear_ht" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Clear Historic Telemetry">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+        </MetaCommandSet>
+    </CommandMetaData>
+</SpaceSystem>

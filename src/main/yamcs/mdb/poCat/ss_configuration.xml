@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpaceSystem name="SS Configuration" xmlns="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+    <CommandMetaData>
+        <ArgumentTypeSet>
+
+			<EnumeratedArgumentType name="RF_Freq_Type">
+				<UnitSet />
+				<IntegerDataEncoding sizeInBits="8" />
+				<EnumerationList>
+					<Enumeration value="0" label="868 MHz" />
+					<Enumeration value="1" label="915 MHz" />
+				</EnumerationList>
+			</EnumeratedArgumentType>
+            <EnumeratedArgumentType name="Spreading_Factor_Type">
+				<UnitSet />
+				<IntegerDataEncoding sizeInBits="0" />
+				<EnumerationList>
+					<Enumeration value="10" label="10" />
+					<Enumeration value="11" label="11" />
+				</EnumerationList>
+			</EnumeratedArgumentType>
+            <EnumeratedArgumentType name="Coding_Rate_Type">
+				<UnitSet />
+				<IntegerDataEncoding sizeInBits="2" />
+				<EnumerationList>
+					<Enumeration value="0" label="4/5" />
+					<Enumeration value="1" label="4/8" />
+				</EnumerationList>
+			</EnumeratedArgumentType>
+
+		</ArgumentTypeSet>
+
+        <MetaCommandSet>
+            <MetaCommand name="Upload ADCS Calibration" shortDescription="(TODO) Updates ADCS Magnetometer Calibration">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="upload_adcs_calibration" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Upload ADCS Calibration">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Upload COMMS Configuration" shortDescription="Updates COMMS configuration (SF, CR, frequency, output power)">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="upload_comms_config" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Upload COMMS Configuration">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="COMMS Upload Parameters" shortDescription="Uploads new reception timeout, sleep time and turns on off CAD mode.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="comms_upload_params" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <ArgumentList>
+					<Argument argumentTypeRef="RF_Freq_Type" name="RF Freq" />
+					<Argument argumentTypeRef="Spreading_Factor_Type" name="Spreading Factor" />
+					<Argument argumentTypeRef="Coding_Rate_Type" name="Coding Rate" />
+				</ArgumentList>
+                <CommandContainer name="COMMS Upload Parameters">
+                    <BaseContainer containerRef="PoCat/Header" />
+                    <EntryList>
+						<ArgumentRefEntry argumentRef="RF Freq" />
+						<ArgumentRefEntry argumentRef="Spreading Factor" />
+						<ArgumentRefEntry argumentRef="Coding Rate" />
+					</EntryList>
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Upload UNIX Time" shortDescription="Uploads UNIX time to the satellite.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="upload_unix_time" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Upload UNIX Time">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Upload EPS Thresholds" shortDescription="Updates OBC States battery thresholds.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="upload_eps_th" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Upload EPS Thresholds">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Upload PAYLOAD Configuration" shortDescription="Uploads PAYLOAD configuration.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="upload_pl_config" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Upload PAYLOAD Configuration">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+            <MetaCommand name="Downlink Configuration" shortDescription="Requests COMMS, EPS Thresholds and PAYLOAD parameters.">
+                <BaseMetaCommand metaCommandRef="PoCat/Header">
+                    <ArgumentAssignmentList>
+                        <ArgumentAssignment argumentName="Telecommand ID" argumentValue="downlink_config" />
+                    </ArgumentAssignmentList>
+                </BaseMetaCommand>
+                <CommandContainer name="Downlink Configuration">
+                    <EntryList />
+                    <BaseContainer containerRef="PoCat/Header" />
+                </CommandContainer>
+            </MetaCommand>
+
+        </MetaCommandSet>
+    </CommandMetaData>
+</SpaceSystem>

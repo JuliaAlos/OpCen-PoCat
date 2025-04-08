@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpaceSystem name="Ping" xmlns="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+	<CommandMetaData>
+		<MetaCommandSet>
+			<MetaCommand name="Ping" shortDescription="Ping pong test to verify the communication link.">
+				<BaseMetaCommand metaCommandRef="PoCat/Header">
+					<ArgumentAssignmentList>
+						<ArgumentAssignment argumentName="Telecommand ID" argumentValue="ping" />
+					</ArgumentAssignmentList>
+				</BaseMetaCommand>
+				<CommandContainer name="Ping">
+					<EntryList />
+					<BaseContainer containerRef="PoCat/Header" />
+				</CommandContainer>
+				<DefaultSignificance consequenceLevel="vital" />
+			</MetaCommand>
+		</MetaCommandSet>
+	</CommandMetaData>
+</SpaceSystem>
