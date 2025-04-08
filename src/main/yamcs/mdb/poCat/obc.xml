@@ -44,9 +44,14 @@
                         <ArgumentAssignment argumentName="Telecommand ID" argumentValue="obc_debug_mode" />
                     </ArgumentAssignmentList>
                 </BaseMetaCommand>
+                <ArgumentList>
+					<Argument argumentTypeRef="PoCat/off_on_Type" name="Debug Mode" />
+				</ArgumentList>
                 <CommandContainer name="Enter Debug Mode">
-                    <EntryList />
                     <BaseContainer containerRef="PoCat/Header" />
+                    <EntryList>
+						<ArgumentRefEntry argumentRef="Debug Mode" />
+					</EntryList>
                 </CommandContainer>
             </MetaCommand>
 

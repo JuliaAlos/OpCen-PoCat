@@ -28,15 +28,6 @@
 				</EnumerationList>
 			</EnumeratedArgumentType>
 
-            <EnumeratedArgumentType name="CADMODE_Flag_Type">
-				<UnitSet />
-				<IntegerDataEncoding sizeInBits="8" />
-				<EnumerationList>
-					<Enumeration value="0" label="off" />
-					<Enumeration value="1" label="on" />
-				</EnumerationList>
-			</EnumeratedArgumentType>
-
             <IntegerArgumentType name="packetwindow_Type" signed="false">
 				<IntegerDataEncoding encoding="unsigned" sizeInBits="8" />
                 <ValidRange minInclusive="1" maxInclusive="255"/>
@@ -86,7 +77,7 @@
                     </ArgumentAssignmentList>
                 </BaseMetaCommand>
                 <ArgumentList>
-					<Argument argumentTypeRef="CADMODE_Flag_Type" name="CADMODE Flag" />
+					<Argument argumentTypeRef="PoCat/off_on_Type" name="CADMODE Flag" />
 					<Argument argumentTypeRef="PoCat/uint8_Type" name="RX Time" />
 					<Argument argumentTypeRef="PoCat/uint8_Type" name="Sleep Time" />
 					<Argument argumentTypeRef="packetwindow_Type" name="Packet Window" />

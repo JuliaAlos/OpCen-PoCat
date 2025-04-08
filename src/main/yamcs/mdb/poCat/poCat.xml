@@ -76,6 +76,15 @@
 				</ReferenceTime>
 			</AbsoluteTimeArgumentType>
 
+            <EnumeratedArgumentType name="off_on_Type">
+				<UnitSet />
+				<IntegerDataEncoding sizeInBits="8" />
+				<EnumerationList>
+					<Enumeration value="0" label="off" />
+					<Enumeration value="1" label="on" />
+				</EnumerationList>
+			</EnumeratedArgumentType>
+
 		</ArgumentTypeSet>
 		<MetaCommandSet>
 			<MetaCommand name="Header" abstract="true">

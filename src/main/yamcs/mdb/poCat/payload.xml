@@ -8,9 +8,14 @@
                         <ArgumentAssignment argumentName="Telecommand ID" argumentValue="payload_schedule" />
                     </ArgumentAssignmentList>
                 </BaseMetaCommand>
+                <ArgumentList>
+					<Argument argumentTypeRef="PoCat/UNIX_Time_Type" name="UNIX Time" />
+				</ArgumentList>
                 <CommandContainer name="Activate Payload">
-                    <EntryList />
                     <BaseContainer containerRef="PoCat/Header" />
+                    <EntryList>
+						<ArgumentRefEntry argumentRef="UNIX Time" />
+					</EntryList>
                 </CommandContainer>
             </MetaCommand>
 
@@ -32,9 +37,16 @@
                         <ArgumentAssignment argumentName="Telecommand ID" argumentValue="payload_send_data" />
                     </ArgumentAssignmentList>
                 </BaseMetaCommand>
+                <ArgumentList>
+					<Argument argumentTypeRef="PoCat/uint8_Type" name="Mesure Number" />
+					<Argument argumentTypeRef="PoCat/uint8_Type" name="Packet Start" />
+				</ArgumentList>
                 <CommandContainer name="Send Payload Data">
-                    <EntryList />
                     <BaseContainer containerRef="PoCat/Header" />
+                    <EntryList>
+						<ArgumentRefEntry argumentRef="Mesure Number" />
+						<ArgumentRefEntry argumentRef="Packet Start" />
+					</EntryList>
                 </CommandContainer>
             </MetaCommand>
 
