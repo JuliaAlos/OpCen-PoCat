@@ -13,7 +13,7 @@
 			</EnumeratedArgumentType>
             <EnumeratedArgumentType name="Spreading_Factor_Type">
 				<UnitSet />
-				<IntegerDataEncoding sizeInBits="0" />
+				<IntegerDataEncoding sizeInBits="8" />
 				<EnumerationList>
 					<Enumeration value="10" label="10" />
 					<Enumeration value="11" label="11" />
@@ -21,12 +21,27 @@
 			</EnumeratedArgumentType>
             <EnumeratedArgumentType name="Coding_Rate_Type">
 				<UnitSet />
-				<IntegerDataEncoding sizeInBits="2" />
+				<IntegerDataEncoding sizeInBits="8" />
 				<EnumerationList>
 					<Enumeration value="0" label="4/5" />
 					<Enumeration value="1" label="4/8" />
 				</EnumerationList>
 			</EnumeratedArgumentType>
+
+            <EnumeratedArgumentType name="CADMODE_Flag_Type">
+				<UnitSet />
+				<IntegerDataEncoding sizeInBits="8" />
+				<EnumerationList>
+					<Enumeration value="0" label="off" />
+					<Enumeration value="1" label="on" />
+				</EnumerationList>
+			</EnumeratedArgumentType>
+
+            <IntegerArgumentType name="packetwindow_Type" signed="false">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="8" />
+                <ValidRange minInclusive="1" maxInclusive="255"/>
+			</IntegerArgumentType>
+
 
 		</ArgumentTypeSet>
 
@@ -49,9 +64,18 @@
                         <ArgumentAssignment argumentName="Telecommand ID" argumentValue="upload_comms_config" />
                     </ArgumentAssignmentList>
                 </BaseMetaCommand>
+                <ArgumentList>
+					<Argument argumentTypeRef="RF_Freq_Type" name="RF Freq" />
+					<Argument argumentTypeRef="Spreading_Factor_Type" name="Spreading Factor" />
+					<Argument argumentTypeRef="Coding_Rate_Type" name="Coding Rate" />
+				</ArgumentList>
                 <CommandContainer name="Upload COMMS Configuration">
-                    <EntryList />
                     <BaseContainer containerRef="PoCat/Header" />
+                    <EntryList>
+						<ArgumentRefEntry argumentRef="RF Freq" />
+						<ArgumentRefEntry argumentRef="Spreading Factor" />
+						<ArgumentRefEntry argumentRef="Coding Rate" />
+					</EntryList>
                 </CommandContainer>
             </MetaCommand>
 
@@ -62,16 +86,18 @@
                     </ArgumentAssignmentList>
                 </BaseMetaCommand>
                 <ArgumentList>
-					<Argument argumentTypeRef="RF_Freq_Type" name="RF Freq" />
-					<Argument argumentTypeRef="Spreading_Factor_Type" name="Spreading Factor" />
-					<Argument argumentTypeRef="Coding_Rate_Type" name="Coding Rate" />
+					<Argument argumentTypeRef="CADMODE_Flag_Type" name="CADMODE Flag" />
+					<Argument argumentTypeRef="PoCat/uint8_Type" name="RX Time" />
+					<Argument argumentTypeRef="PoCat/uint8_Type" name="Sleep Time" />
+					<Argument argumentTypeRef="packetwindow_Type" name="Packet Window" />
 				</ArgumentList>
                 <CommandContainer name="COMMS Upload Parameters">
                     <BaseContainer containerRef="PoCat/Header" />
                     <EntryList>
-						<ArgumentRefEntry argumentRef="RF Freq" />
-						<ArgumentRefEntry argumentRef="Spreading Factor" />
-						<ArgumentRefEntry argumentRef="Coding Rate" />
+						<ArgumentRefEntry argumentRef="CADMODE Flag" />
+						<ArgumentRefEntry argumentRef="RX Time" />
+						<ArgumentRefEntry argumentRef="Sleep Time" />
+						<ArgumentRefEntry argumentRef="Packet Window" />
 					</EntryList>
                 </CommandContainer>
             </MetaCommand>
@@ -82,21 +108,35 @@
                         <ArgumentAssignment argumentName="Telecommand ID" argumentValue="upload_unix_time" />
                     </ArgumentAssignmentList>
                 </BaseMetaCommand>
+                <ArgumentList>
+					<Argument argumentTypeRef="PoCat/UNIX_Time_Type" name="UNIX Time" />
+				</ArgumentList>
                 <CommandContainer name="Upload UNIX Time">
-                    <EntryList />
                     <BaseContainer containerRef="PoCat/Header" />
+                    <EntryList>
+						<ArgumentRefEntry argumentRef="UNIX Time" />
+					</EntryList>
                 </CommandContainer>
             </MetaCommand>
 
-            <MetaCommand name="Upload EPS Thresholds" shortDescription="Updates OBC States battery thresholds.">
+            <MetaCommand name="Upload EPS Thresholds" shortDescription="(TODO: Check conversion)Updates OBC States battery thresholds.">
                 <BaseMetaCommand metaCommandRef="PoCat/Header">
                     <ArgumentAssignmentList>
                         <ArgumentAssignment argumentName="Telecommand ID" argumentValue="upload_eps_th" />
                     </ArgumentAssignmentList>
                 </BaseMetaCommand>
+                <ArgumentList>
+					<Argument argumentTypeRef="PoCat/uint8_Type" name="NOM-CONT TH" />
+					<Argument argumentTypeRef="PoCat/uint8_Type" name="CON-SS TH" />
+					<Argument argumentTypeRef="PoCat/uint8_Type" name="SS-SURV TH" />
+				</ArgumentList>
                 <CommandContainer name="Upload EPS Thresholds">
-                    <EntryList />
                     <BaseContainer containerRef="PoCat/Header" />
+                    <EntryList>
+						<ArgumentRefEntry argumentRef="NOM-CONT TH" />
+						<ArgumentRefEntry argumentRef="CON-SS TH" />
+						<ArgumentRefEntry argumentRef="SS-SURV TH" />
+					</EntryList>
                 </CommandContainer>
             </MetaCommand>
 
@@ -106,9 +146,20 @@
                         <ArgumentAssignment argumentName="Telecommand ID" argumentValue="upload_pl_config" />
                     </ArgumentAssignmentList>
                 </BaseMetaCommand>
+                <ArgumentList>
+					<Argument argumentTypeRef="PoCat/uint16_Type" name="Freq min" />
+					<Argument argumentTypeRef="PoCat/uint16_Type" name="Freq max" />
+					<Argument argumentTypeRef="PoCat/uint16_Type" name="Integration Time" />
+					<Argument argumentTypeRef="PoCat/uint16_Type" name="delta Freq" />
+				</ArgumentList>
                 <CommandContainer name="Upload PAYLOAD Configuration">
-                    <EntryList />
                     <BaseContainer containerRef="PoCat/Header" />
+                    <EntryList>
+						<ArgumentRefEntry argumentRef="Freq min" />
+						<ArgumentRefEntry argumentRef="Freq max" />
+						<ArgumentRefEntry argumentRef="Integration Time" />
+						<ArgumentRefEntry argumentRef="delta Freq" />
+					</EntryList>
                 </CommandContainer>
             </MetaCommand>
 

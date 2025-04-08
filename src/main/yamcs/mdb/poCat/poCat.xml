@@ -57,6 +57,25 @@
 					<Enumeration value="106" label="close" />
 				</EnumerationList>
 			</EnumeratedArgumentType>
+
+			<IntegerArgumentType name="uint8_Type" signed="false">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="8" />
+                <ValidRange minInclusive="0" maxInclusive="255"/>
+			</IntegerArgumentType>
+
+            <IntegerArgumentType name="uint16_Type" signed="false">
+				<IntegerDataEncoding encoding="unsigned" sizeInBits="16" />
+			</IntegerArgumentType>
+
+			<AbsoluteTimeArgumentType name="UNIX_Time_Type">
+				<Encoding>
+					<IntegerDataEncoding sizeInBits="32" encoding="unsigned" />
+				</Encoding>
+				<ReferenceTime>
+					<Epoch>UNIX</Epoch>
+				</ReferenceTime>
+			</AbsoluteTimeArgumentType>
+
 		</ArgumentTypeSet>
 		<MetaCommandSet>
 			<MetaCommand name="Header" abstract="true">
